@@ -6,6 +6,27 @@ let cartItemArr = [];
 let itemList = document.querySelector(".item-list");
 let priceList = document.querySelector(".price-list");
 let modal = document.querySelector(".modal");
+let price = 99;
+let cancelBtn = document.querySelector(".cancel-btn");
+let main = document.querySelector(".main");
+
+checkoutBtn.addEventListener("click", displayItems);
+cancelBtn.addEventListener("click", closeModal);
+
+function closeModal() {
+  modal.style.display = "none";
+  main.style.opacity = "100%";
+}
+
+function setCount() {
+  itemCount++;
+  count.innerHTML = itemCount;
+}
+
+function displayItems() {
+  modal.style.display = "flex";
+  main.style.opacity = "20%";
+}
 
 addBtnArr.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -26,18 +47,5 @@ addBtnArr.forEach((button) => {
 
     itemList.prepend(item);
     priceList.prepend(price);
-
-    modal.style.display = "flex";
   });
 });
-
-checkoutBtn.addEventListener("click", displayItems);
-
-function setCount() {
-  itemCount++;
-  count.innerHTML = itemCount;
-}
-
-function displayItems() {
-  console.log("you cart is: " + cartItemArr);
-}
