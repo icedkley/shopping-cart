@@ -9,9 +9,12 @@ let modal = document.querySelector(".modal");
 let price = 99;
 let cancelBtn = document.querySelector(".cancel-btn");
 let main = document.querySelector(".main");
+let closeBtn = document.querySelector(".close-modal-btn");
+let itemPriceArr = [];
 
 checkoutBtn.addEventListener("click", displayItems);
 cancelBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
 
 function closeModal() {
   modal.style.display = "none";
@@ -26,6 +29,7 @@ function setCount() {
 function displayItems() {
   modal.style.display = "flex";
   main.style.opacity = "20%";
+  getTotal();
 }
 
 addBtnArr.forEach((button) => {
@@ -38,14 +42,41 @@ addBtnArr.forEach((button) => {
     e.target.style.backgroundColor = "green";
     e.target.disabled = true;
 
+    // console.log(
+    //   e.target.closest(".price-wrapper").firstElementChild.firstElementChild
+    //     .textContent
+    // );
+
+    itemPriceArr.push(
+      e.target.closest(".price-wrapper").firstElementChild.firstElementChild
+        .textContent
+    );
+
+    // console.log(itemPriceArr);
+
     let item = document.createElement("li");
     item.innerHTML =
       e.target.parentNode.parentNode.children[1].children[0].innerText;
 
     let price = document.createElement("li");
-    price.innerHTML = "$99.9";
+    price.textContent = ` $${
+      e.target.closest(".price-wrapper").firstElementChild.firstElementChild
+        .textContent
+    }`;
 
     itemList.prepend(item);
     priceList.prepend(price);
   });
 });
+
+function getTotal() {
+  let total = 0;
+  itemPriceArr.forEach((price) => {
+    total += parseInt(price);
+  });
+
+  console.log(total);
+
+  let totalPrice = document.querySelector(".total-price");
+  totalPrice.textContent = `$${total}`;
+}

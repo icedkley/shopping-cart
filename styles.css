@@ -18,7 +18,6 @@ body {
 header {
   top: 0;
   position: sticky;
-  padding: 0.5rem;
   background-color: rgb(20, 20, 20);
   color: rgb(230, 230, 230);
   display: flex;
@@ -35,9 +34,14 @@ header {
   gap: 2rem;
 }
 
+.links li {
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
 .links li:hover {
   cursor: pointer;
-  text-decoration: underline;
+  background-image: linear-gradient(var(--color-black), var(--color-red));
 }
 
 .cart-wrapper {
@@ -116,7 +120,7 @@ button:hover {
 .add-to-cart-btn {
   background-color: var(--color-red);
   border: none;
-  padding: 0.4rem;
+  padding: 0.6rem;
   border-radius: 4px;
   color: white;
 }
@@ -192,4 +196,17 @@ button:hover {
   border-radius: 0.4rem;
   background-color: transparent;
   color: black;
+}
+
+.close-modal-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+hr {
+  display: flex;
+  margin: 8px 0;
 }
