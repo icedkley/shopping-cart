@@ -1,7 +1,8 @@
 :root {
   --color-red: rgb(185, 22, 22);
+  --color-green: rgb(55, 185, 22);
   --color-black: rgb(12, 12, 12);
-  --color-white: rgb(223, 223, 223);
+  --color-white: #dfdfdf;
 }
 
 * {
@@ -23,10 +24,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .logo {
-  left: 0;
+  padding: 1rem;
+  scale: 110%;
+  display: flex;
+  align-items: center;
+  gap: 5-px;
 }
 
 .links {
@@ -93,8 +99,7 @@ button:hover {
   width: 20vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+  justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -122,6 +127,7 @@ button:hover {
   border: none;
   padding: 0.6rem;
   border-radius: 4px;
+  font-size: 14px;
   color: white;
 }
 
@@ -209,4 +215,12 @@ button:hover {
 hr {
   display: flex;
   margin: 8px 0;
+}
+
+.checkout-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
